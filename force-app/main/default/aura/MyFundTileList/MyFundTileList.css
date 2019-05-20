@@ -1,0 +1,29 @@
+.THIS {
+
+}
+
+.THIS .left {
+
+}
+
+.THIS .right {
+    text-align: right;
+}
+
+.THIS .centered {
+    color: #999999;
+    font-size: 0.9rem;
+    text-align: center;
+	align-self: center;
+    padding: 0 12px;
+    font-weight: bold;
+}
+
+.THIS.no-pointer .pointer{
+    visibility: hidden;
+}
+
+.THIS.popoverclass {
+    min-height: 100px;
+    min-width: 500px;
+}

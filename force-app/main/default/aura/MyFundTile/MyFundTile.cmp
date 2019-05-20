@@ -1,0 +1,39 @@
+<aura:component implements="flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="fund" type="Fund__c" />
+    <aura:attribute name="index" type="Integer" />
+    <aura:attribute name="recordId" type="Id" />
+    
+    <aura:attribute name="record" type="Object"/>
+    <aura:attribute name="simpleRecord" type="Object"/>
+    <aura:attribute name="recordError" type="String"/>
+    
+    
+    <aura:attribute name="popoverInstance" type="List" />
+    
+    <force:recordData aura:id="recordLoader"
+                      recordId="{!v.fund.Id}"
+                      targetFields="{!v.simpleRecord}"
+                      targetError="{!v.recordError}"
+                      layoutType="FULL"
+                      />
+    <!--<lightning:overlayLibrary aura:id="overlayLib"/> -->
+    <p class="slds-app-launcher__tile slds-text-link--reset slds-truncate slds-box slds-theme_default" onclick="{!c.onTileClick}"
+        data-id="{#v.index}" >
+        <div class="slds-app-launcher__tile-figure" data-id="{#v.index}">
+            <span class="{! 'slds-avatar slds-avatar--large slds-align--absolute-center ' + v.simpleRecord.Asset_Class__c}" data-id="{#v.index}">
+                {!v.simpleRecord.Abbreviation__c}
+            </span>
+        </div>
+        <div class="slds-app-launcher__tile-body" data-id="{#v.index}">
+            <a href="" data-id="{#v.index}">{!v.simpleRecord.Name}</a>
+            <p data-id="{#v.index}">{!v.simpleRecord.Sector__r.Name}</p>
+            
+            <p class="slds-border_top" data-id="{#v.index}"><lightning:progressBar value="{! (v.simpleRecord.Rating__c * 20)}" size="large" data-id="{#v.index}"/></p>
+            
+        </div>  
+        
+    </p>
+    
+    
+    
+</aura:component>

@@ -1,0 +1,26 @@
+.THIS .matrix {
+    border:solid 1px #EEE;
+    border-radius: 4px;
+    margin-top: 8px;
+}
+
+.THIS.title {
+    text-align: center;
+    font-weight: bold;
+    color: blue;
+    
+}
+.THIS .para {
+    font-weight: normal;
+    color: black;
+}
+
+.THIS .range {
+    font-weight: normal;
+    color: black;
+    
+}
+
+.THIS .matrix .return {
+	font-size: 23px;     
+}

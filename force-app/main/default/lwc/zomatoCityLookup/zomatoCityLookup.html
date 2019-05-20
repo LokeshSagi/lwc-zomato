@@ -1,0 +1,13 @@
+<template>
+    <div id="option1" class="slds-media slds-listbox__option slds-listbox__option_entity slds-listbox__option_has-meta"
+        role="option" onclick={handleDivClick}>
+        <span class="slds-media__figure slds-listbox__option-icon">
+            <img src={style}>
+        </span>
+        <span class="slds-media__body">
+            <span class="slds-listbox__option-text slds-listbox__option-text_entity">{cityObj.name}</span>
+            <span class="slds-listbox__option-meta slds-listbox__option-meta_entity">{cityObj.country_name} ∙∙∙
+                {cityObj.state_name}</span>
+        </span>
+    </div>
+</template>

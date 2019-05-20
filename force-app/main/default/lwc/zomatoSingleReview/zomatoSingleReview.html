@@ -1,0 +1,31 @@
+<template>
+  <template if:true={review}>
+    <div>
+      <lightning-tile
+        label={review.review.user.name}
+        href={review.review.user.profile_url}
+        type="media"
+      >
+        <lightning-avatar
+          slot="media"
+          src={review.review.user.profile_image}
+          fallback-icon-name="standard:people"
+          alternative-text="User"
+        ></lightning-avatar>
+        <ul class="slds-list_horizontal slds-has-dividers_right">
+          <li class="slds-item">{review.review.user.foodie_level}</li>
+          <li class="slds-item">{review.review.review_time_friendly}</li>
+        </ul>
+      </lightning-tile>
+      <div style="margin-top: 3px;">
+        <span style="font-weight: bold; font-size: 13px;">Rated </span
+        ><span
+          ><lightning-badge
+            style={getBadge}
+            label={badgeLabel}
+          ></lightning-badge></span
+        >&nbsp; {review.review.review_text}
+      </div>
+    </div>
+  </template>
+</template>

@@ -1,0 +1,60 @@
+<aura:component controller="MyFundTileListClass" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="totalPages" type="Integer"  />
+    <aura:attribute name="currentPage" type="Integer" default="1" />
+    <aura:attribute name="fundsToDisplay" type="Integer" default="9" />
+    <aura:attribute name="offsetFunds" type="Integer" default="0" />
+    <aura:attribute name="allFunds" type="List" />
+    <aura:attribute name="totalFunds" type="Integer" />
+    
+    <aura:attribute name="popoverInstance" type="List" />
+    
+    <aura:attribute name="filterObject" type="Object" />
+    <aura:handler event="c:MyFundFilterEvent" action="{!c.loadFilterFunds}" />
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    <div >
+        <lightning:overlayLibrary aura:id="overlayLib"/>
+        <p aura:id="list" class="slds-box slds-theme_default" >
+            <lightning:layout horizontalAlign="spread" verticalAlign="stretch" multipleRows="true">
+                
+                <aura:iteration items="{! v.allFunds}" var="fund" indexVar="index">
+                    
+                    <lightning:layoutItem padding="around-small" size="12"
+                                          smallDeviceSize= "6"
+                                          mediumDeviceSize= "4"
+                                          largeDeviceSize= "4">
+                        <div class="{#fund.Id}" onmouseover="{!c.onMouseMove}" onmouseleave="{!c.onMouseLeave}" 
+                             onmouseout="{!c.onMouseLeave}">
+                            <c:MyFundTile  fund="{!fund}" index="{#index}" />
+                        </div>
+                        
+                        
+                    </lightning:layoutItem>
+                    
+                </aura:iteration>
+            </lightning:layout>
+        </p>
+        
+        
+        
+        <lightning:layout horizontalAlign="center" >           
+            
+            <lightning:layoutItem > 
+                <lightning:buttonIcon iconName="utility:left" variant="border-filled" onclick="{!c.onLeftClick}" disabled="{!v.currentPage == 1}" />       
+            </lightning:layoutItem>
+            
+            <lightning:layoutItem class="centered">
+                {!v.totalFunds}&nbsp;funds •• Page {!v.currentPage} of {!v.totalPages} 
+            </lightning:layoutItem>
+            
+            <lightning:layoutItem >  
+                <lightning:buttonIcon iconName="utility:right" variant="border-filled" onclick="{!c.onRightClick}" disabled="{!v.currentPage == v.totalPages}"/>                           
+            </lightning:layoutItem>
+            
+        </lightning:layout>
+        
+        
+    </div>
+    
+</aura:component>

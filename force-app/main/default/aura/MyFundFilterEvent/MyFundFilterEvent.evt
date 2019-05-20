@@ -1,0 +1,14 @@
+<aura:event type="APPLICATION" description="Event template" >
+    <aura:attribute name="nameString" type="String" />
+    <aura:attribute name="assetString" type="String" />
+    <aura:attribute name="sectorString" type="String" />
+    
+    <aura:attribute name="minYTD" type="Integer" />
+    <aura:attribute name="maxYTD" type="Integer" />
+    
+    <aura:attribute name="min1Y" type="Integer" />
+    <aura:attribute name="max1Y" type="Integer" />
+    
+    <aura:attribute name="min5Y" type="Integer" />
+    <aura:attribute name="max5Y" type="Integer" />
+</aura:event>

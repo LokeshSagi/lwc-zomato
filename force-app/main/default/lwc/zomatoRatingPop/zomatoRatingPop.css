@@ -1,0 +1,8 @@
+.popClass {
+    font-size: smaller;
+    width: fit-content;
+    position: fixed;
+    height: fit-content;
+    background-color: black;
+    color: white;
+}

@@ -1,0 +1,24 @@
+<template>
+    <lightning-card title="Design attributes Demo" icon-name="custom:custom5">
+        {greeting}
+        <div class="slds-p-around_large">
+            <p>
+                {label.testLabel}
+            </p>
+            <div class="divTag">
+                <img src={image} class="imageTag" />
+                <div class="textDiv">
+                    Salesforce family :)
+                </div>
+            </div>
+
+            <div>{label.ACCOUNT_OBJ.objectApiName}</div>
+            <div>{label.lang}</div>
+            <div>{label.locale}</div>
+            <div>{label.currency}</div>
+            <div>{label.timezone}</div>
+
+        </div>
+
+    </lightning-card>
+</template>

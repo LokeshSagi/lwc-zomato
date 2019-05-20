@@ -1,0 +1,19 @@
+<template>
+    <lightning-card title="ShowToast Demo" icon-name="action:share_thanks">
+
+        <lightning-input label="Title" value={title} onchange={onTitleChange} class="slds-p-left_small slds-p-right_small">
+        </lightning-input>
+
+        <lightning-input label="Message" value={message} onchange={onMessageChange} class="slds-p-left_small slds-p-right_small">
+        </lightning-input>
+
+        <lightning-combobox label="Variant" value={variant} onchange={onVariantChange} options={variantOptions}
+            class="slds-p-left_small slds-p-right_small">
+        </lightning-combobox>
+
+        <div class="slds-align_absolute-center slds-p-vertical_large">
+            <lightning-button-icon size="large" icon-name="custom:custom9" 
+                onclick={onIconClick}></lightning-button-icon>
+        </div>
+    </lightning-card>
+</template>

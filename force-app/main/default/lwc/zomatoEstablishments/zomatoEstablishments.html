@@ -1,0 +1,33 @@
+<template>
+    <lightning-card class="slds-p-top_medium">
+        <h3 slot="title">
+            <lightning-icon icon-name="standard:entity" size="small"></lightning-icon>
+            Establishments
+        </h3>
+        <lightning-button-icon icon-name="utility:clear" variant="border-filled" alternative-text="Clear Filter"
+            onclick={handleClear} slot="actions"></lightning-button-icon>
+        <template if:true={myEstabs}>
+            <div class="slds-scrollable" style="height: fit-content">
+                <p>
+                    <lightning-layout multiple-rows>
+                        <template for:each={myEstabs} for:index="index" for:item="est">
+                            <lightning-layout-item key={est.establishment.id} size="3" padding="around-small">
+                                <a onclick={handleEstSelect} data-ind={est.establishment.id}>
+                                    <lightning-badge data-ind={est.establishment.id} label={est.establishment.name}
+                                        class={checkClass}>
+                                    </lightning-badge>
+                                </a>
+
+                            </lightning-layout-item>
+                        </template>
+                    </lightning-layout>
+                </p>
+            </div>
+        </template>
+
+        <template if:true={noEstCase}>
+            <h3>No Establishments found for city</h3>
+        </template>
+
+    </lightning-card>
+</template>

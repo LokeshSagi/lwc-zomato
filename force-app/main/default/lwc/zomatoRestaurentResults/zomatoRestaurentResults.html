@@ -1,0 +1,83 @@
+<template>
+  <template if:true={myRests}>
+    <div style="background-color: #f3f3f3">
+      <lightning-layout multiple-rows>
+        <template for:each={myRests} for:index="index" for:item="rest">
+          <lightning-layout-item
+            size="12"
+            large-device-size="6"
+            key={rest.restaurant.id}
+            class="slds-p-around_xx-small"
+          >
+            <!--<img src={rest.restaurant.thumb} alt={rest.restaurant.name}>-->
+            <div class="divTagEach">
+              <c-zomato-restaurent
+                onrestselect={handleRestFromChild}
+                restaurant={rest}
+              ></c-zomato-restaurent>
+            </div>
+          </lightning-layout-item>
+        </template>
+      </lightning-layout>
+    </div>
+
+    <div class="slds-p-around_medium lgc-bg-inverse">
+      <lightning-layout horizontal-align="center">
+        <lightning-layout-item>
+          <lightning-button-icon
+            icon-name="utility:left"
+            onclick={onLeftClick}
+            disabled={leftDis}
+            alternative-text="Previous"
+          ></lightning-button-icon>
+        </lightning-layout-item>
+        <lightning-layout-item class="centered">
+          {totalResults} Restaurants ∙∙∙ Page {currentPage} of {totalPages}
+        </lightning-layout-item>
+        <lightning-layout-item>
+          <lightning-button-icon
+            icon-name="utility:right"
+            onclick={onRightClick}
+            disabled={rightDis}
+            alternative-text="Next"
+          ></lightning-button-icon>
+        </lightning-layout-item>
+      </lightning-layout>
+    </div>
+  </template>
+
+  <template if:true={showModal}>
+    <div class="demo-only demo-only_viewport" style="height:640px">
+      <section
+        role="dialog"
+        tabindex="-1"
+        class="slds-modal slds-fade-in-open slds-modal_small"
+        aria-labelledby="modal-heading-01"
+        aria-modal="true"
+        aria-describedby="modal-content-id-1"
+      >
+        <div class="slds-modal__container">
+          
+          <div
+            class="slds-modal__content slds-p-around_medium"
+            id="modal-content-id-1"
+          >
+            <p>
+              <c-zomato-restaurant-modal restaurant={clickedRest}></c-zomato-restaurant-modal>
+            </p>
+            
+          </div>
+          <footer class="slds-modal__footer" style="align-content: center;">
+            <button
+              class="slds-button slds-button_neutral"
+              onclick={removeModal}
+            >
+              Cancel
+            </button>
+          </footer>
+        </div>
+      </section>
+      <div class="slds-backdrop slds-backdrop_open"></div>
+    </div>
+  </template>
+</template>

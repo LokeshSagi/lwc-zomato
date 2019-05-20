@@ -1,0 +1,20 @@
+<template>
+  <template if:true={reviews}>
+    <div style="font-weight: bold; max-width: 80%; font-size: 16px;">
+      100% genuine reviews from real foodies based on real experiences
+    </div>
+    <p style="font-size: 11px; font-weight: normal;">
+      Zomato rating is based on weighted average method of calculation that
+      takes into account multiple factors such as votes, user credibility and
+      local trends to come up with a score that you can rely on.
+    </p>
+
+    <template if:true={userReviews}>
+      <template for:each={userReviews} for:index="index" for:item="review">
+        <div key={review.review.id} class="slds-p-around_medium">
+          <c-zomato-single-review review={review}></c-zomato-single-review>
+        </div>
+      </template>
+    </template>
+  </template>
+</template>

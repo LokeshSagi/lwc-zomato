@@ -1,0 +1,83 @@
+<aura:component controller="MyFundFilterClass" implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    
+    <aura:attribute name="objInfo" type="Fund__c" default="{sobjectType : 'Fund__c'}" />
+    <aura:attribute name="nameString" type="String" />
+    <aura:attribute name="assetsLoad" type="List" default="['Bond','Commodity','Currency']" />
+    <aura:attribute name="sectorsLoad" type="List" default="['Agriculture','Asia','Biotech','Bonds','Energy','Grains']" />
+    
+    <aura:attribute name="minYTD" type="Integer" default="-30" />
+    <aura:attribute name="maxYTD" type="Integer" default="30" />
+    
+    <aura:attribute name="min1Y" type="Integer" default="-30" />
+    <aura:attribute name="max1Y" type="Integer" default="30" />
+    
+    <aura:attribute name="min5Y" type="Integer" default="-30" />
+    <aura:attribute name="max5Y" type="Integer" default="30" />
+    
+    
+    <aura:registerEvent name="fundFilterAppEvent" type="c:MyFundFilterEvent"/>
+    
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    
+    
+    <lightning:card title="Filters" iconName="utility:filterList">
+        
+        <lightning:input class="slds-m-around_medium" name="nameString" label="Search for Funds" type="search" variant="label-hidden" 
+                         value="{!v.nameString}" onchange="{!c.nameFilterChange}" placeholder="Search mutual funds"/>
+        
+        <lightning:select class="slds-m-around_medium" aura:id="asset" name="asset" label="Asset Class" onchange="{!c.assetFilterChange}">
+            <option value=""> </option>
+            <aura:iteration items="{!v.assetsLoad}" var="as" >
+                <option value="{!as}">{!as}</option>
+            </aura:iteration>
+        </lightning:select> 
+        
+        <lightning:select class="slds-m-around_medium" aura:id="sector" name="sector" label="Sector" onchange="{!c.sectorFilterChange}">
+            <option value=""> </option>
+            <aura:iteration items="{!v.sectorsLoad}" var="se" >
+                <option value="{!se}">{!se}</option>
+            </aura:iteration>
+        </lightning:select>
+        
+        <p class="slds-m-horizontal_medium slds-text-title">YTD Return
+            <lightning:layout class="slds-m-horizontal_medium">
+                <lightning:layoutItem>
+                    <lightning:slider aura:id="ytds1" label="min" size="x-small" min="-30" max="30" step="1" 
+                                      value="{!v.minYTD}" onchange="{! c.onYTDminChange }"/>
+                </lightning:layoutItem>
+                <lightning:layoutItem>
+                    <lightning:slider aura:id="ytds2" label="max" size="x-small" min="-30" max="30" step="1" 
+                                      value="{!v.maxYTD}" onchange="{! c.onYTDmaxChange }"/>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </p>
+        
+        <p class="slds-m-horizontal_medium slds-m-top_medium slds-text-title">1 Year Return
+            <lightning:layout class="slds-m-horizontal_medium">
+                <lightning:layoutItem>
+                    <lightning:slider aura:id="1ys1" label="min" size="x-small" min="-30" max="30" step="1" 
+                                      value="{!v.min1Y}" onchange="{! c.on1YminChange }"/>
+                </lightning:layoutItem>
+                <lightning:layoutItem>
+                    <lightning:slider aura:id="1ys2" label="max" size="x-small" min="-30" max="30" step="1" 
+                                      value="{!v.max1Y}" onchange="{! c.on1YmaxChange }"/>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </p>
+        
+        <p class="slds-m-horizontal_medium slds-m-top_medium slds-text-title">5 Year Return
+            <lightning:layout class="slds-m-horizontal_medium slds-m-bottom_medium">
+                <lightning:layoutItem>
+                    <lightning:slider aura:id="5ys1" label="min" size="x-small" min="-30" max="30" step="1" 
+                                      value="{!v.min5Y}" onchange="{! c.on5YminChange }"/>
+                </lightning:layoutItem>
+                <lightning:layoutItem>
+                    <lightning:slider aura:id="5ys2" label="max" size="x-small" min="-30" max="30" step="1" 
+                                      value="{!v.max5Y}" onchange="{! c.on5YmaxChange }"/>
+                </lightning:layoutItem>
+            </lightning:layout>
+        </p>
+        
+    </lightning:card>
+    
+</aura:component>

@@ -1,0 +1,18 @@
+.centered {
+    color: #999999;
+    font-size: 0.9rem;
+    text-align: center;
+	align-self: center;
+    padding: 0 12px;
+    font-weight: bold;
+}
+
+.lgc-bg-inverse {
+    background-color: rgb(22, 50, 92);
+    border-radius: 15px;
+}
+
+.lgc-bg-inverse:hover {
+    background-color: white;
+    color: black;
+}

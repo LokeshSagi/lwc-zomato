@@ -1,0 +1,72 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId" access="global" >
+    <aura:attribute name="showPop" type="Boolean" default="false" />
+    
+    <aura:attribute name="fund" type="Fund__c" />
+    
+       
+    <lightning:card title="Fund Overview" class="slds-box title">
+        
+        <lightning:layout >
+            <lightning:layoutItem >
+                <lightning:icon iconName="utility:feed" size="small" class="popup-icon"/>
+            </lightning:layoutItem>
+            <lightning:layoutItem >
+                <h3 class="slds-section__title slds-text-align_left para">{!v.fund.Name}</h3>
+            </lightning:layoutItem>
+        </lightning:layout>
+        
+        <p class="slds-text-align_left para"><lightning:formattedText value="{! 'Sector:	' + v.fund.Sector__r.Name}" /></p>
+        <p class="slds-text-align_left para"><lightning:formattedText value="{! 'Asset Class:	' + v.fund.Asset_Class__c}" /></p>
+                
+        <lightning:layout class="matrix">
+            
+            <lightning:layoutItem flexibility="grow" padding="around-small" class="center-text border-right">
+                <div class="slds-text-title slds-m-around_xxx-small range">YTD</div>
+                <p aura:id="ytd" style="{! (v.fund.YTD_Return__c > 0)? 'color:green':'color:red'}" class="return">{!v.fund.YTD_Return__c}<span>%</span></p>
+                <aura:if isTrue="{! (v.fund.YTD_Return__c > 0) }">
+                    <lightning:dynamicIcon type="trend" option="up" alternativeText="Trending down"/>
+                    <aura:set attribute="else">
+                        <lightning:dynamicIcon type="trend" option="down" alternativeText="Trending down"/>
+                    </aura:set> 
+                </aura:if>
+            </lightning:layoutItem>
+            
+            <lightning:layoutItem flexibility="grow" padding="around-small" class="center-text border-right">
+                <div class="slds-text-title slds-m-around_xxx-small range">1-year</div>
+                <p aura:id="oneYear" style="{! (v.fund.One_Year_Return__c > 0)? 'color:green':'color:red'}" class="return">{!v.fund.One_Year_Return__c}<span>%</span></p>
+                <aura:if isTrue="{! (v.fund.One_Year_Return__c > 0) }">
+                    <lightning:dynamicIcon type="trend" option="up" alternativeText="Trending down"/>
+                    <aura:set attribute="else">
+                        <lightning:dynamicIcon type="trend" option="down" alternativeText="Trending down"/>
+                    </aura:set> 
+                </aura:if>
+            </lightning:layoutItem>
+            
+            <lightning:layoutItem flexibility="grow" padding="around-small" class="center-text border-right">
+                <div class="slds-text-title slds-m-around_xxx-small range">2-year</div>
+                <p aura:id="twoYear" style="{! (v.fund.Two_Year_Return__c > 0)? 'color:green':'color:red'}" class="return">{!v.fund.Two_Year_Return__c}<span>%</span></p>
+                <aura:if isTrue="{! (v.fund.Two_Year_Return__c > 0) }">
+                    <lightning:dynamicIcon type="trend" option="up" alternativeText="Trending down"/>
+                    <aura:set attribute="else">
+                        <lightning:dynamicIcon type="trend" option="down" alternativeText="Trending down"/>
+                    </aura:set> 
+                </aura:if>
+            </lightning:layoutItem>
+            
+            <lightning:layoutItem flexibility="grow" padding="around-small" class="center-text">
+                <div class="slds-text-title slds-m-around_xxx-small range">5-year</div>
+                <p aura:id="fiveYear" style="{! (v.fund.Five_Year_Return__c > 0)? 'color:green':'color:red'}" class="return">{!v.fund.Five_Year_Return__c}<span>%</span></p>
+                <aura:if isTrue="{! (v.fund.Five_Year_Return__c > 0) }">
+                    <lightning:dynamicIcon type="trend" option="up" alternativeText="Trending down"/>
+                    <aura:set attribute="else">
+                        <lightning:dynamicIcon type="trend" option="down" alternativeText="Trending down"/>
+                    </aura:set> 
+                </aura:if>
+            </lightning:layoutItem>
+            
+        </lightning:layout>
+        
+    </lightning:card>
+    
+    
+</aura:component>

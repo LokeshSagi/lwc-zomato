@@ -1,0 +1,77 @@
+<template>
+  <template if:true={restaurant}>
+    <div style="background-color: #f3f3f3; ">
+      <div style="background-color: white; margin-top: 0px; padding-top: 0px;">
+        <lightning-layout>
+          <lightning-layout-item size="3">
+            <div class="slds-m-around_x-small" style="height:100px;">
+              <img
+                src={getRestImage}
+                style="border-radius: 8px; width: 115%; max-height: 100%"
+              />
+            </div>
+          </lightning-layout-item>
+          <lightning-layout-item size="9">
+            <lightning-layout
+              style="height: fit-content; border-bottom: 0.5px solid black;"
+            >
+              <lightning-layout-item size="12">
+                <lightning-layout>
+                  <lightning-layout-item size="8">
+                    <div style="font-size: x-large">
+                      {restaurant.restaurant.name}
+                    </div>
+                    <div
+                      style="max-width: 70%; font-size: 1em; color: #9ea8ad; "
+                    >
+                      {restaurant.restaurant.location.address}
+                    </div>
+                  </lightning-layout-item>
+                  <lightning-layout-item size="4" padding="around-small">
+                    <p
+                      class="slds-float_right slds-box slds-box_xx-small"
+                      style="background-color: #ff7800"
+                    >
+                      <span
+                        style="font-size: large; font-weight: bold; color: white;"
+                        >{restaurant.restaurant.user_rating.aggregate_rating}</span
+                      >
+                      <span style="font-size: medium; color: #ffbe95"> /5</span>
+                    </p>
+
+                    <p
+                      class="slds-float_right slds-m-top_small"
+                      style="line-height: 1em; color: #9ea8ad;"
+                    >
+                      Based on {restaurant.restaurant.user_rating.votes} votes
+                    </p>
+                  </lightning-layout-item>
+                </lightning-layout>
+              </lightning-layout-item>
+            </lightning-layout>
+
+            <lightning-layout>
+              <lightning-layout-item size="12">
+                <span style={getStatus}>{restStatus}</span
+                >&nbsp;&nbsp;•&nbsp;&nbsp;<span style="color: red"
+                  >{restaurant.restaurant.cuisines}</span
+                >
+              </lightning-layout-item>
+            </lightning-layout>
+          </lightning-layout-item>
+        </lightning-layout>
+      </div>
+
+      <div style="margin-top: 10px; background-color: white;">
+        <lightning-tabset active-tab-value="reviews" variant="scoped">
+          <lightning-tab label="Location" value="location">
+            <c-zomato-restaurant-map restaurant={restaurant}></c-zomato-restaurant-map>
+          </lightning-tab>
+          <lightning-tab label="Reviews" value="reviews">
+            <c-zomato-get-reviews restaurant={restaurant} rest-id={restaurant.restaurant.id}></c-zomato-get-reviews>
+          </lightning-tab>
+        </lightning-tabset>
+      </div>
+    </div>
+  </template>
+</template>

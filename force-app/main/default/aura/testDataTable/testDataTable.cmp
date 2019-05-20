@@ -1,0 +1,13 @@
+<aura:component implements="force:appHostable,flexipage:availableForAllPageTypes,flexipage:availableForRecordHome,force:hasRecordId,force:lightningQuickAction" access="global" >
+    <aura:attribute name="data" type="Object" />
+    <aura:attribute name="columns" type="List" />
+    
+     <aura:handler name="init" value="{! this }" action="{! c.doInit }"/>
+    
+    <lightning:datatable
+                keyField="id"
+                data="{! v.data }"
+                columns="{! v.columns }"
+                hideCheckboxColumn="false"/>
+    
+</aura:component>

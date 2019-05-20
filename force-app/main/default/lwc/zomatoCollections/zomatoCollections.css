@@ -1,0 +1,25 @@
+.text {
+    line-height: 1.5em;
+    height: 3em;
+    overflow: hidden;
+    /*white-space: nowrap;
+    text-overflow: ellipsis;*/
+    color: #CB202D;
+    font-weight: normal;
+}
+
+.image {
+    object-fit: fill;
+    border-radius: 10px;
+    border : 1px solid red;
+}
+
+.layItem {
+    height: 150px;
+    overflow: hidden;
+    
+}
+
+.filter:active {
+    background-color: red;
+}

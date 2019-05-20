@@ -1,0 +1,23 @@
+<template>
+  <!--<c-zomato-get-cities onselectedcity={citySelected} onpillremove={pillRemoved}></c-zomato-get-cities>-->
+  <template if:true={cityObj}>
+    <c-zomato-collections
+      class="slds-m-top_medium"
+      oncollselect={handleColFound}
+      onclearcol={handleColClear}
+    >
+    </c-zomato-collections>
+  </template>
+  <template if:true={cityObj}>
+    <c-zomato-establishments
+      class="slds-m-top_medium"
+      onestfound={handleEstFound}
+      onclearest={handleEstClear}
+    >
+    </c-zomato-establishments>
+  </template>
+  <!--
+    <template if:true={cityObj}>
+        <c-zomato-get-cuisines class="slds-m-top_medium"></c-zomato-get-cuisines>
+    </template>-->
+</template>

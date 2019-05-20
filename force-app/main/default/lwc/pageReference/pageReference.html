@@ -1,0 +1,48 @@
+<template>
+    <lightning-card title={heading}>
+        <lightning-layout horizontal-align="center" vertical-align="center" multiple-rows>
+
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-button label="LWC Practice" onclick={navigateTab} icon-name="custom:custom34">
+                </lightning-button>
+            </lightning-layout-item>
+
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-button label="Account Home" onclick={navigateAccountHome} icon-name="custom:custom34">
+                </lightning-button>
+            </lightning-layout-item>
+
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-button label="All Accounts" icon-name="utility:save" onclick={navigateListView}>
+                </lightning-button>
+            </lightning-layout-item>
+
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-button label="Record Details" variant="destructive" icon-name="utility:delete"
+                    onclick={navigateDetails}></lightning-button>
+            </lightning-layout-item>
+
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-button label="Record Relationship Page" variant="destructive" icon-position="right"
+                    icon-name="custom:custom32" onclick={navigateRelationship}></lightning-button>
+            </lightning-layout-item>
+
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-button label="Web Page" variant="brand" onclick={navigateToWebPage}
+                    icon-name="action:web_link">
+                </lightning-button>
+            </lightning-layout-item>
+
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-button label="Create Account" icon-name="action:new_account" onclick={navigateCreateAccount}>
+                </lightning-button>
+            </lightning-layout-item>
+
+            <lightning-layout-item padding="around-small" size="3">
+                <lightning-button label="Edit Account" icon-name="action:edit" onclick={navigateAccountEdit}>
+                </lightning-button>
+            </lightning-layout-item>
+
+        </lightning-layout>
+    </lightning-card>
+</template>

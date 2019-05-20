@@ -1,0 +1,14 @@
+<template>
+    <section if:true={cuisines}>
+        <lightning-card title="Cuisines">
+            <lightning-layout multiple-rows>
+                <template for:each={options} for:index="index" for:item="cuisine">
+                    <lightning-layout-item key={cuisine.value} size="4">
+                        <!--<lightning-checkbox-group options={cuisine} ></lightning-checkbox-group>-->
+                        <c-zomato-single-cuisine cuisine={cuisine}></c-zomato-single-cuisine>
+                    </lightning-layout-item>
+                </template>
+            </lightning-layout>
+        </lightning-card>
+    </section>
+</template>

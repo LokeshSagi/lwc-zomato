@@ -1,0 +1,45 @@
+.background {
+    background-color: chartreuse;
+}
+
+.changeStyle:hover {
+    box-shadow: brown;
+}
+
+.cuisines {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: #9ea8ad;
+    font-weight: normal;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+.votes {
+    color: #a8a7aa;
+    font-weight: bold;
+    font-size: smaller;
+}
+
+.button {
+    background-color: #e6f5ec !important;
+    color: green !important;
+    border: none;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: green;
+    color: white !important;
+}
+
+.locality {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    font-weight: normal;
+    color: black;
+    font-size: large;
+}

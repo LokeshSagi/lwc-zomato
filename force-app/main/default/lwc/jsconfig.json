@@ -1,0 +1,131 @@
+{
+    "compilerOptions": {
+        "experimentalDecorators": true,
+        "baseUrl": ".",
+        "paths": {
+            "c/accountTitle": [
+                "accountTitle/accountTitle.js"
+            ],
+            "c/contactListDemo": [
+                "contactListDemo/contactListDemo.js"
+            ],
+            "c/designLWCDemo": [
+                "designLWCDemo/designLWCDemo.js"
+            ],
+            "c/helloWorld": [
+                "helloWorld/helloWorld.js"
+            ],
+            "c/ldsComponent": [
+                "ldsComponent/ldsComponent.js"
+            ],
+            "c/ldsCreateRecord": [
+                "ldsCreateRecord/ldsCreateRecord.js"
+            ],
+            "c/ldsCustomViewRecord": [
+                "ldsCustomViewRecord/ldsCustomViewRecord.js"
+            ],
+            "c/ldsGetRecordCustom": [
+                "ldsGetRecordCustom/ldsGetRecordCustom.js"
+            ],
+            "c/ldsViewRecord": [
+                "ldsViewRecord/ldsViewRecord.js"
+            ],
+            "c/lifeCycleHooks": [
+                "lifeCycleHooks/lifeCycleHooks.js"
+            ],
+            "c/logicalLWCDemo": [
+                "logicalLWCDemo/logicalLWCDemo.js"
+            ],
+            "c/lwcEventsChild": [
+                "lwcEventsChild/lwcEventsChild.js"
+            ],
+            "c/lwcEventsParent": [
+                "lwcEventsParent/lwcEventsParent.js"
+            ],
+            "c/myFirstLWC": [
+                "myFirstLWC/myFirstLWC.js"
+            ],
+            "c/pageReference": [
+                "pageReference/pageReference.js"
+            ],
+            "c/paginator": [
+                "paginator/paginator.js"
+            ],
+            "c/popTestComp": [
+                "popTestComp/popTestComp.js"
+            ],
+            "c/pubsub": [
+                "pubsub/pubsub.js"
+            ],
+            "c/resourceDemo": [
+                "resourceDemo/resourceDemo.js"
+            ],
+            "c/showToastComp": [
+                "showToastComp/showToastComp.js"
+            ],
+            "c/simpleEvent": [
+                "simpleEvent/simpleEvent.js"
+            ],
+            "c/testModalLWC": [
+                "testModalLWC/testModalLWC.js"
+            ],
+            "c/testPopover": [
+                "testPopover/testPopover.js"
+            ],
+            "c/zomatoCityHome": [
+                "zomatoCityHome/zomatoCityHome.js"
+            ],
+            "c/zomatoCityLookup": [
+                "zomatoCityLookup/zomatoCityLookup.js"
+            ],
+            "c/zomatoCollections": [
+                "zomatoCollections/zomatoCollections.js"
+            ],
+            "c/zomatoEstablishments": [
+                "zomatoEstablishments/zomatoEstablishments.js"
+            ],
+            "c/zomatoFilters": [
+                "zomatoFilters/zomatoFilters.js"
+            ],
+            "c/zomatoGetCities": [
+                "zomatoGetCities/zomatoGetCities.js"
+            ],
+            "c/zomatoGetCuisines": [
+                "zomatoGetCuisines/zomatoGetCuisines.js"
+            ],
+            "c/zomatoGetReviews": [
+                "zomatoGetReviews/zomatoGetReviews.js"
+            ],
+            "c/zomatoRatingPop": [
+                "zomatoRatingPop/zomatoRatingPop.js"
+            ],
+            "c/zomatoRestaurantMap": [
+                "zomatoRestaurantMap/zomatoRestaurantMap.js"
+            ],
+            "c/zomatoRestaurantModal": [
+                "zomatoRestaurantModal/zomatoRestaurantModal.js"
+            ],
+            "c/zomatoRestaurent": [
+                "zomatoRestaurent/zomatoRestaurent.js"
+            ],
+            "c/zomatoRestaurentResults": [
+                "zomatoRestaurentResults/zomatoRestaurentResults.js"
+            ],
+            "c/zomatoSingleCuisine": [
+                "zomatoSingleCuisine/zomatoSingleCuisine.js"
+            ],
+            "c/zomatoSingleReview": [
+                "zomatoSingleReview/zomatoSingleReview.js"
+            ]
+        }
+    },
+    "include": [
+        "**/*",
+        "../../../../.sfdx/typings/lwc/**/*.d.ts"
+    ],
+    "typeAcquisition": {
+        "include": [
+            "jest"
+        ]
+    }
+}

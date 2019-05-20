@@ -1,0 +1,69 @@
+<template>
+  <template if:true={restaurant}>
+    <div style="border: 1px solid lightgray; border-radius: 5px; ">
+      <div
+        style="cursor: pointer;"
+        onclick={handleRestClick}
+        class="changeStyle"
+      >
+        <lightning-layout
+          style="background-color: white; border-radius: 5px; height: 160px"
+          class="slds-p-around_small"
+        >
+          <lightning-layout-item size="3">
+            <img src={getThumb} style="border-radius: 10px; " />
+          </lightning-layout-item>
+          <lightning-layout-item size="9" class="slds-p-left_small">
+            <lightning-layout>
+              <lightning-layout-item size="9">
+                <p
+                  class="slds-text-heading_medium"
+                  style="color: #CB202D; font-weight: bolder;"
+                >
+                  {restaurant.restaurant.name}
+                </p>
+                <p class="cuisines">{restaurant.restaurant.cuisines}</p>
+                <p class="cuisines">{getCurrency}</p>
+                <p class="locality">
+                  {restaurant.restaurant.location.locality}
+                </p>
+                <p style={statusColor}>{getStatus}</p>
+              </lightning-layout-item>
+              <lightning-layout-item size="3" style="border: 1px solid white">
+                <div onmouseover={badgeMouseIn} onmouseout={badgeMouseOut}>
+                  <lightning-badge
+                    label={restaurant.restaurant.user_rating.aggregate_rating}
+                    class="slds-float_right"
+                    style={getRatingColor}
+                  >
+                  </lightning-badge>
+                </div>
+
+                <p class="votes slds-float_right">
+                  {restaurant.restaurant.user_rating.votes} votes
+                </p>
+              </lightning-layout-item>
+            </lightning-layout>
+          </lightning-layout-item>
+        </lightning-layout>
+      </div>
+      <section if:false={disableButton}>
+        <div
+          class="slds-box slds-box_xx-small"
+          style="background-color: white; border-bottom-left-radius: 5px; border-bottom-right-radius: 5px"
+        >
+          <div class="slds-clearfix">
+            <button
+              class="button slds-float_right"
+              onclick={handleOrder}
+              disabled={disableButton}
+            >
+              Order Online
+            </button>
+          </div>
+        </div>
+      </section>
+      <c-zomato-rating-pop style="transition: 2ms"></c-zomato-rating-pop>
+    </div>
+  </template>
+</template>

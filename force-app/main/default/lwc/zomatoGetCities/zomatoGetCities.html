@@ -1,0 +1,61 @@
+<template>
+    <template if:true={showInput}>
+        <div class="slds-form-element inputStyle">
+            <div class="slds-form-element__control">
+                <div class="slds-combobox_container">
+                    <div class="slds-combobox slds-dropdown-trigger slds-dropdown-trigger_click slds-is-open"
+                        aria-expanded="false" aria-haspopup="listbox" role="combobox">
+                        <lightning-layout>
+                            <lightning-layout-item size="12" padding="around-small">
+                                <div style="color: white; font-size: 18px;">City:</div>
+                                <lightning-input id="cityInput" name="city" variant="label-hidden" type="search"
+                                    style="font-weight: bolder" onchange={onCityChange} onfocus={onInputFocus}
+                                    value={cityName}>
+                                </lightning-input>
+
+                                <template if:true={allCities}>
+                                    <div id="listbox-id-1"
+                                        class="slds-dropdown slds-dropdown_length-with-icon-7 slds-dropdown_fluid"
+                                        role="listbox">
+                                        <ul class="slds-listbox slds-listbox_vertical" role="presentation">
+                                            <template if:true={checkCities}>
+                                                <template for:each={allCities.location_suggestions} for:item="city"
+                                                    for:index="index">
+                                                    <c-zomato-city-lookup key={city.id} city-obj={city}
+                                                        onselectedcity={citySelected}>
+                                                    </c-zomato-city-lookup>
+                                                </template>
+                                            </template>
+
+                                            <template if:false={checkCities}>
+                                                <h2>No cities found.</h2>
+                                            </template>
+
+                                        </ul>
+                                    </div>
+                                </template>
+
+                            </lightning-layout-item>
+                        </lightning-layout>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <template if:true={enablePill}>
+        <div class="inputStylePill">
+            <lightning-formatted-text style="color: white; font-size: 18px;" value="City: "></lightning-formatted-text>
+            <div>
+                <!--<lightning-pill name="pill" onremove={onPillRemove} label={selectedCity.name}>
+                    <img src={selectedCity.country_flag_url}>
+                </lightning-pill>-->
+                <lightning-pill-container style="max-width: fit-content" label="Search for a City" items={items}
+                    single-line onitemremove={onPillRemove}>
+                </lightning-pill-container>
+            </div>
+        </div>
+    </template>
+
+</template>
