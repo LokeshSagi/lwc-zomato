@@ -1,0 +1,6 @@
+<template>
+    <lightning-card title="Parent">
+        <lightning-button label="Parent Button" onclick={childHandle}></lightning-button>
+    </lightning-card>
+    <c-lwc-events-child onchildclick={handleChildClick}></c-lwc-events-child>
+</template>

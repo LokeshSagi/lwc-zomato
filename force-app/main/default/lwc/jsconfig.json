@@ -3,6 +3,12 @@
         "experimentalDecorators": true,
         "baseUrl": ".",
         "paths": {
+            "c/lwcEventsChild": [
+                "lwcEventsChild/lwcEventsChild.js"
+            ],
+            "c/lwcEventsParent": [
+                "lwcEventsParent/lwcEventsParent.js"
+            ],
             "c/zomatoCityHome": [
                 "zomatoCityHome/zomatoCityHome.js"
             ],
